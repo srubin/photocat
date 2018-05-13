@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body style="background-color: rgba(0,0,0,0); margin: 0" >
+  <div id="App"></div>
+</body>
+
+<script>window.exports = module.exports</script>
+<script type="text/tsx">
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import {AppContainer} from 'react-hot-loader';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import {photocatApp} from './reducers';
+import {App} from './app';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './sagas';
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(photocatApp, applyMiddleware(sagaMiddleware));
+
+let render = () => {
+    ReactDOM.render(
+        (
+            <AppContainer>
+                <Provider store={store}>
+                  <App />
+                </Provider>
+            </AppContainer>
+        ),
+        document.getElementById('App')
+    );
+
+    sagaMiddleware.run(rootSaga);
+};
+
+render();
+if (module.hot) { module.hot.accept(render); }
+</script>
+</html>

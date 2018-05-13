@@ -1,0 +1,97 @@
+{
+  "name": "photocat",
+  "productName": "photocat",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "tslint --project tsconfig.json --type-check --force"
+  },
+  "keywords": [],
+  "author": "srubin",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "yarn"
+      },
+      "electronWinstallerConfig": {
+        "name": "photocat"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "photocat"
+      }
+    }
+  },
+  "dependencies": {
+    "@types/image-size": "^0.0.29",
+    "@types/mmmagic": "^0.4.29",
+    "bluebird": "^3.5.1",
+    "classnames": "^2.2.5",
+    "crc": "^3.5.0",
+    "electron": "^2.0.0",
+    "electron-compile": "^6.4.2",
+    "electron-devtools-installer": "^2.1.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "fs-extra": "^6.0.1",
+    "image-size": "^0.6.2",
+    "mmmagic": "^0.5.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-grid-gallery": "^0.4.11",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-redux": "^5.0.7",
+    "react-sortable-hoc": "^0.6.8",
+    "react-split-pane": "^0.1.77",
+    "redux": "^4.0.0",
+    "redux-saga": "^0.16.0",
+    "sharp": "^0.20.2",
+    "tslib": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.20",
+    "@types/classnames": "^2.2.3",
+    "@types/crc": "^3.4.0",
+    "@types/electron": "^1.6.10",
+    "@types/electron-devtools-installer": "^2.0.3",
+    "@types/fs-extra": "^5.0.2",
+    "@types/react": "^16.3.14",
+    "@types/react-dom": "^16.0.5",
+    "@types/react-hot-loader": "^4.1.0",
+    "@types/react-redux": "^6.0.0",
+    "@types/react-sortable-hoc": "^0.6.3",
+    "@types/react-split-pane": "^0.1.67",
+    "@types/redux": "^3.6.0",
+    "@types/redux-saga": "^0.10.5",
+    "@types/sharp": "^0.17.8",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "electron-forge": "^5.2.1",
+    "electron-prebuilt-compile": "2.0.0",
+    "tslint": "^5.1.0",
+    "typescript": "^2.8.3"
+  }
+}
